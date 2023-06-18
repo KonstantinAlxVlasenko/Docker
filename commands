@@ -1,0 +1,38 @@
+docker build . -t <image name>
+
+# dettached mode
+docker run -d <image name>
+docker run -p <local_port>:<docker container port>
+
+docker attach <conainer name or id>
+docker logs -f <container name or id>
+
+# python interactive
+docker run -it <image name or id>
+docker start -ai <container_name or id>
+
+# remove
+docker rm <container name>
+docker container prune
+docker rmi <image name or id>
+docker image prune
+
+# run container and remove after stopped
+docker run -p 3000:80 -d --rm <image name or id>
+
+# image info
+docker image inspect <image name or id>
+
+# copying files into container
+docker cp <local file path> <container name>:/<container folder name>
+
+#copying fils from the container
+docker cp <container name>:/<container folder name>/<file name> <local folder> 
+
+# naming and tagging
+ docker run -p 3000:80 -d --rm --name goalsapp todolst
+ docker build . -t <name>:<tag>
+
+
+# volumes
+docker run -d --rm -p 3000:80 --name feedback-app -v feedback:/app/feedback -v "C:\Users\konst\Documents\05.PYTHON\Docker\data-volumes-01-starting-setup\data-volumes-01-starting-setup:/app:ro"  -v /app/temp -v /app/node_modules feedback-node:volumes3
